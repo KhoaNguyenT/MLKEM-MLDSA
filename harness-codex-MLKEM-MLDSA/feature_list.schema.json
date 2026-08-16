@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "feature_list",
+  "type": "object",
+  "required": ["features"],
+  "properties": {
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "priority", "area", "title",
+          "user_visible_behavior", "status", "verification", "evidence", "notes"
+        ],
+        "properties": {
+          "id": { "type": "string", "description": "short unique identifier" },
+          "priority": { "type": "integer", "description": "lower = higher priority" },
+          "area": { "type": "string", "description": "part of the app, e.g. chat/import/search" },
+          "title": { "type": "string", "description": "short description" },
+          "user_visible_behavior": { "type": "string", "description": "what the user sees when it works" },
+          "status": {
+            "type": "string",
+            "enum": ["not_started", "in_progress", "blocked", "passing"],
+            "description": "only one feature may be in_progress at a time"
+          },
+          "verification": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "step-by-step instructions to confirm it works"
+          },
+          "evidence": { "type": "string", "description": "recorded proof verification passed (filled by the agent)" },
+          "notes": { "type": "string", "description": "any extra context" }
+        }
+      }
+    }
+  }
+}

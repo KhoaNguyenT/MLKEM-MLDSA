@@ -1,0 +1,18 @@
+{
+  "run_id": "20260731T080523-6d7f32",
+  "feature": "example-1",
+  "status": "done",
+  "step": 2,
+  "hitl_log": [
+    {
+      "reason": "high-risk action matches 'write_*'",
+      "decision": "approve",
+      "reviewer": "demo",
+      "tool_args": {
+        "feature": "example-1",
+        "path": "out/artifact"
+      },
+      "at": "2026-07-31T08:05:23.478766+00:00"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+# OS and editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Harness-generated runs (keep the shipped example)
+harness-codex-MLKEM-MLDSA/harness/runs/*/
+!harness-codex-MLKEM-MLDSA/harness/runs/EXAMPLE_RUN/
+!harness-codex-MLKEM-MLDSA/harness/runs/EXAMPLE_RUN/**
+
+# HDL simulation and synthesis outputs
+build/
+out/
+work/
+xsim.dir/
+.Xil/
+*.wdb
+*.vcd
+*.fst
+*.jou
+*.str
+*.pb
+*.log
+*.tmp
+*.cache
+
+# Local secrets and environment overrides
+.env
+.env.*
+*.pem
+*.key
+credentials.json

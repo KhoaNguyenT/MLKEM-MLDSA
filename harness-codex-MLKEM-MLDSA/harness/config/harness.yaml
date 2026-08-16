@@ -1,0 +1,50 @@
+# harness.yaml â€” harness configuration. Replace TODO values with your project's.
+
+harness:
+  name: mlkem-mldsa-harness
+  version: 0.1.0
+
+project:
+  root: ".."
+
+paths:
+  feature_list: "feature_list.json"
+  memory: "harness/memory"
+  state: "harness/state"
+  runs: "harness/runs"
+
+# Model(s) the agents use
+models:
+  planner:
+    id: "TODO-planner-model"
+    temperature: 0.2
+  worker:
+    id: "TODO-worker-model"
+    temperature: 0.0
+
+# Loop safety limits
+limits:
+  max_iterations: 12
+  max_retries: 2
+  step_timeout_seconds: 600
+
+# Gates (quality checks), fail-closed
+gates:
+  fail_closed: true
+  order: [G1, G2, G3, G4]
+  G1: { name: technical_validity, type: computational }
+  G2: { name: structure,          type: computational }
+  G3: { name: verification,       type: computational }
+  G4: { name: semantic_review,    type: inferential }
+
+# Human-in-the-loop policy
+hitl:
+  enabled: true
+  require_approval_for: ["write_*", "promote_*", "delete_*", "deploy_*"]
+  escalate_when:
+    confidence_below: 0.6
+    on_conflicting_evidence: true
+    on_retry_limit: true
+  reviewers: ["project-owner"]
+  approval_timeout_seconds: 86400
+  demo_auto_approve: true   # demo only; set false in production

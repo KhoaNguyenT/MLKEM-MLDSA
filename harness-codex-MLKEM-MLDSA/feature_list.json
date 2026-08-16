@@ -1,0 +1,17 @@
+{
+  "features": [
+    {
+      "id": "example-feature",
+      "priority": 2,
+      "area": "example",
+      "title": "Short description of the feature",
+      "user_visible_behavior": "What the user should see when this works",
+      "status": "not_started",
+      "verification": [
+        "Step-by-step instruction to confirm it works"
+      ],
+      "evidence": "",
+      "notes": "Replace this example with your real features. See feature_list.schema.json for fields and status rules."
+    }
+  ]
+}
