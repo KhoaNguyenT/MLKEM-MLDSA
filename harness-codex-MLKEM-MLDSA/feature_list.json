@@ -47,7 +47,7 @@
     },
     {
       "id": "m0-reference-architectures",
-      "priority": 4,
+      "priority": 5,
       "area": "architecture-research",
       "title": "Create a normalized reference-architecture comparison",
       "user_visible_behavior": "docs/reference_architectures.md compares the unified paper, Adams Bridge, PQC OpenTitan, KiD, KaLi, GMUCERG/Dilithium, and HOPE-MLKEM with source-backed PPA and architecture fields plus comparison caveats.",
@@ -58,7 +58,23 @@
         "State device, technology, parameter set, and normalization caveats."
       ],
       "evidence": "",
-      "notes": "The local NTT-iNTT directory currently contains only the KiD paper."
+      "notes": "The KiD paper is stored under docs/references/papers; remaining papers are tracked in docs/references/PAPERS_NEEDED.md."
+    },
+    {
+      "id": "m0-mydev-mlkem-baseline",
+      "priority": 4,
+      "area": "legacy-baseline",
+      "title": "Reproduce the existing Mydev_before ML-KEM implementation",
+      "user_visible_behavior": "The legacy ML-KEM design has reproducible per-target Verilator simulations and a Vivado 2024.2 implementation baseline with utilization, timing, latency, and power evidence where supported.",
+      "status": "not_started",
+      "verification": [
+        "Inventory synthesizable sources, testbenches, top modules, duplicate module names, parameters, vectors, and known-failing directories.",
+        "Run each selected target through Verilator lint/simulation before Vivado implementation.",
+        "Record Vivado 2024.2 part, constraints, clock, utilization, WNS/TNS, achieved frequency, latency/cycles, and power assumptions.",
+        "Keep raw baseline results immutable and distinguish verified behavior from historical claims."
+      ],
+      "evidence": "",
+      "notes": "Treat Mydev_before as a reusable legacy baseline, not as normative FIPS truth or an optimized final architecture. FPGA part, top-level target, clock target, and XDC still require confirmation."
     }
   ]
 }

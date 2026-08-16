@@ -50,3 +50,7 @@ harness-codex-MLKEM-MLDSA/.harness-bootstrap.ok
 # Nested Git worktrees for parallel workers
 /MLKEM-MLDSA-codex/
 /MLKEM-MLDSA-antigravity/
+
+# Locally cloned third-party repositories; pinning metadata is tracked separately
+/Vendor/golden/*/
+/Vendor/reference/*/

@@ -32,7 +32,7 @@ def main() -> int:
     required_paths = [
         project / "AGENTS.md",
         project / "MLKEM_MLDSA_CODEX_HANDOFF.md",
-        project / "NTT-iNTT",
+        project / "docs" / "references" / "papers",
         harness / "AGENTS.md",
         harness / "feature_list.json",
         harness / "feature_list.schema.json",

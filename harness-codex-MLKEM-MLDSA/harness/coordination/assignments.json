@@ -8,15 +8,15 @@
   "workers": {
     "codex": {
       "status": "active",
-      "branch": "agent/codex-m0-operation-matrix",
+      "branch": "agent/codex-mlkem-operation-matrix",
       "worktree": "MLKEM-MLDSA-codex",
       "packet": "work_packets/codex-m0-operation-matrix.md"
     },
     "antigravity": {
       "status": "active",
-      "branch": "agent/antigravity-kid-research",
+      "branch": "agent/antigravity-mldsa-operation-matrix",
       "worktree": "MLKEM-MLDSA-antigravity",
-      "packet": "work_packets/antigravity-kid-research.md"
+      "packet": "work_packets/antigravity-mldsa-operation-matrix.md"
     }
   }
 }

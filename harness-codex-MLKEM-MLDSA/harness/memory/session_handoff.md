@@ -2,11 +2,12 @@
 
 ## Verified
 
-- The repository is at pre-M0/M0; there is no RTL or executable golden model yet.
+- The repository is at M0; `Mydev_before` is a legacy ML-KEM RTL baseline, not yet
+  reproducible through a source manifest or testbench.
 - The isolated harness points to the parent directory as the project root.
 - feature_list.json contains exactly one active feature: m0-operation-matrix.
 - verify_project.py uses only the Python standard library.
-- NTT-iNTT contains the KiD paper and no source code.
+- The KiD paper has moved from NTT-iNTT to docs/references/papers.
 
 ## Changed
 
@@ -17,25 +18,33 @@
 
 ## Not yet verified
 
-- The user has not yet run bash harness-codex-MLKEM-MLDSA/init.sh.
-- The KiD PDF has not been text-extracted or visually inspected because PDF tooling is unavailable.
-- No FIPS documents or golden implementations have been pinned locally.
+- The Captain worktree bootstrap marker exists. Each worker worktree needs its own
+  user-run bootstrap before starting that worker session.
+- Poppler 26.01.0 in WSL verified metadata, page count, and first-page title text for
+  all eight PDFs; detailed technical review remains pending.
+- FIPS 203 and FIPS 204 PDFs are locally available, and candidate repositories are
+  pinned in `Vendor/MANIFEST.md`.
 - The operation matrix is a skeleton and must remain in_progress.
 
 ## Next best action
 
-1. User runs: bash harness-codex-MLKEM-MLDSA/init.sh
-2. Install Poppler in WSL if desired: sudo apt-get update && sudo apt-get install -y poppler-utils
-3. Fetch official FIPS 203 and FIPS 204 sources and populate docs/operation_matrix.md with exact citations.
-4. Run verify_project.py with --strict-active and record evidence only after substantive decomposition.
-5. Run each worker bootstrap in its nested worktree before opening its agent session.
-6. Start Codex and Antigravity from their assigned nested worktrees; both packets are active.
+1. Commit the reviewed harness, documentation, Vendor manifest, and legacy-baseline setup.
+2. Fast-forward the two worker worktrees and rename their branches to match the revised packets.
+3. User runs each worker bootstrap in its nested worktree before opening that worker session.
+4. Start Codex and Antigravity from their assigned nested worktrees; both packets are active.
+5. Run verify_project.py with --strict-active and record evidence only after substantive decomposition.
 
 ## Parallel-agent mode
 
 - This conversation is the Captain and remains the user's project-status interface.
-- Codex worker target: normative FIPS operation-matrix decomposition.
-- Antigravity worker target: KiD paper evidence extraction.
+- Codex worker target: stage the ML-KEM half from FIPS 203 in a dedicated research file.
+- Antigravity worker target: stage the ML-DSA half from FIPS 204 in a dedicated research file.
+- Captain target: review both worker commits and integrate accepted content into
+  `docs/operation_matrix.md`.
+- KiD paper extraction is deferred until reference-architecture or NTT research.
+- `Mydev_before` is a legacy ML-KEM baseline. Use Verilator for per-target simulation
+  and Vivado 2024.2 for implementation/PPA after top, part, clock, XDC, and source lists
+  are confirmed. Do not optimize the legacy tree in place.
 - Workers must not update feature_list, memory, state, assignments, or each other's output paths.
 
 ## Key commands
