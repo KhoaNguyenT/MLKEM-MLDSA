@@ -28,8 +28,8 @@
 2. Install Poppler in WSL if desired: sudo apt-get update && sudo apt-get install -y poppler-utils
 3. Fetch official FIPS 203 and FIPS 204 sources and populate docs/operation_matrix.md with exact citations.
 4. Run verify_project.py with --strict-active and record evidence only after substantive decomposition.
-5. After human approval, commit the harness setup and create the two worktrees listed in coordination/assignments.json.
-6. Start Codex and Antigravity only after their packet status is changed from planned to active.
+5. Run each worker bootstrap in its nested worktree before opening its agent session.
+6. Start Codex and Antigravity from their assigned nested worktrees; both packets are active.
 
 ## Parallel-agent mode
 

@@ -29,4 +29,6 @@
 - Designated the current user-facing Codex conversation as the Captain session.
 - Added isolated Codex and Antigravity work packets with non-overlapping writable paths.
 - Reserved shared harness state, integration, evidence acceptance, and user reporting for the Captain.
-- Worktrees are planned but cannot be created from the new protocol until these uncommitted setup changes are reviewed and committed.
+- Worker worktrees were created and are stored inside the Captain root as
+  `MLKEM-MLDSA-codex/` and
+  `MLKEM-MLDSA-antigravity/`; both are ignored by the Captain branch.

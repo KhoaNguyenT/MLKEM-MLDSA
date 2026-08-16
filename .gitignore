@@ -46,3 +46,7 @@ credentials.json
 
 # Local harness bootstrap marker
 harness-codex-MLKEM-MLDSA/.harness-bootstrap.ok
+
+# Nested Git worktrees for parallel workers
+/MLKEM-MLDSA-codex/
+/MLKEM-MLDSA-antigravity/

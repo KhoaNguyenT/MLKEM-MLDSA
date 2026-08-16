@@ -9,13 +9,13 @@
     "codex": {
       "status": "active",
       "branch": "agent/codex-m0-operation-matrix",
-      "worktree": "../MLKEM-MLDSA-codex",
+      "worktree": "MLKEM-MLDSA-codex",
       "packet": "work_packets/codex-m0-operation-matrix.md"
     },
     "antigravity": {
       "status": "active",
       "branch": "agent/antigravity-kid-research",
-      "worktree": "../MLKEM-MLDSA-antigravity",
+      "worktree": "MLKEM-MLDSA-antigravity",
       "packet": "work_packets/antigravity-kid-research.md"
     }
   }
