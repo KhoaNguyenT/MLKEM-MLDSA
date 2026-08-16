@@ -47,4 +47,17 @@ verifier (sets `passing`) · reviewer (optional).
 - Pause for human review before destructive/irreversible actions or before committing
   (`harness/docs/human-in-the-loop.md`).
 
+
 Full lifecycle and roles: `harness/docs/overview.md`.
+
+## Parallel workers
+
+When `harness/coordination/assignments.json` exists, the Captain/worker protocol in
+`harness/coordination/README.md` is mandatory.
+
+- The long-lived user-facing session is Captain and owns all shared harness state.
+- Codex and Antigravity workers use separate branches/worktrees and one work packet each.
+- Workers edit only their packet's writable paths.
+- Workers return evidence, a report, and a commit hash; they do not merge or update
+  feature status, memory, state, or assignments.
+- Overlapping writable paths are forbidden.

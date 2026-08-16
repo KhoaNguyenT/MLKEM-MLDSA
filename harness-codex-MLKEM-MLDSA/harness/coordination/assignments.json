@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "captain": {
+    "role": "project-coordinator",
+    "session": "current-codex-conversation",
+    "owns_shared_state": true
+  },
+  "workers": {
+    "codex": {
+      "status": "active",
+      "branch": "agent/codex-m0-operation-matrix",
+      "worktree": "../MLKEM-MLDSA-codex",
+      "packet": "work_packets/codex-m0-operation-matrix.md"
+    },
+    "antigravity": {
+      "status": "active",
+      "branch": "agent/antigravity-kid-research",
+      "worktree": "../MLKEM-MLDSA-antigravity",
+      "packet": "work_packets/antigravity-kid-research.md"
+    }
+  }
+}

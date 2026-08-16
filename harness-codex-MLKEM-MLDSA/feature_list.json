@@ -1,17 +1,64 @@
 {
   "features": [
     {
-      "id": "example-feature",
-      "priority": 2,
-      "area": "example",
-      "title": "Short description of the feature",
-      "user_visible_behavior": "What the user should see when this works",
-      "status": "not_started",
+      "id": "m0-operation-matrix",
+      "priority": 1,
+      "area": "architecture-research",
+      "title": "Create the FIPS-aligned ML-KEM and ML-DSA operation matrix",
+      "user_visible_behavior": "docs/operation_matrix.md decomposes ML-KEM KeyGen/Encaps/Decaps and ML-DSA KeyGen/Sign/Verify into cited, hardware-relevant primitives without inventing constants.",
+      "status": "in_progress",
       "verification": [
-        "Step-by-step instruction to confirm it works"
+        "Run: python3 harness-codex-MLKEM-MLDSA/harness/tools/verify_project.py --project-root . --harness-root harness-codex-MLKEM-MLDSA",
+        "Confirm every top-level operation is present and each normative constant or operation cites FIPS 203, FIPS 204, or a declared FIPS-aligned source.",
+        "Confirm facts and architecture hypotheses are labeled separately."
       ],
       "evidence": "",
-      "notes": "Replace this example with your real features. See feature_list.schema.json for fields and status rules."
+      "notes": "First active M0 feature. Do not begin RTL implementation in this feature."
+    },
+    {
+      "id": "m0-arithmetic-widths",
+      "priority": 2,
+      "area": "architecture-research",
+      "title": "Derive the exact arithmetic and encoding width table",
+      "user_visible_behavior": "docs/arithmetic_widths.md records exact coefficient, product, accumulation, reduction, butterfly, encoding, and sampler widths with reproducible derivations and citations.",
+      "status": "not_started",
+      "verification": [
+        "Check every width has a formula or source reference.",
+        "Cross-check ML-KEM q=3329 and ML-DSA q=8380417 paths independently.",
+        "Confirm approximate handoff widths were not treated as implementation truth."
+      ],
+      "evidence": "",
+      "notes": "Starts only after the operation matrix has been reviewed."
+    },
+    {
+      "id": "m0-golden-models",
+      "priority": 3,
+      "area": "golden-model",
+      "title": "Bring up FIPS-aligned ML-KEM-768 and ML-DSA-65 golden models",
+      "user_visible_behavior": "Reproducible scripts run ML-KEM-768 keygen/encaps/decaps and ML-DSA-65 keygen/sign/verify, with deterministic vectors and an intermediate-dump path.",
+      "status": "not_started",
+      "verification": [
+        "Build trusted FIPS-aligned references from pinned revisions.",
+        "Run deterministic ML-KEM-768 and ML-DSA-65 round trips.",
+        "Record commands, revisions, outputs, and intermediate-dump evidence."
+      ],
+      "evidence": "",
+      "notes": "Network downloads and dependency installation require explicit user approval."
+    },
+    {
+      "id": "m0-reference-architectures",
+      "priority": 4,
+      "area": "architecture-research",
+      "title": "Create a normalized reference-architecture comparison",
+      "user_visible_behavior": "docs/reference_architectures.md compares the unified paper, Adams Bridge, PQC OpenTitan, KiD, KaLi, GMUCERG/Dilithium, and HOPE-MLKEM with source-backed PPA and architecture fields plus comparison caveats.",
+      "status": "not_started",
+      "verification": [
+        "Confirm all required references and comparison columns are present.",
+        "Cite the source for every reported metric.",
+        "State device, technology, parameter set, and normalization caveats."
+      ],
+      "evidence": "",
+      "notes": "The local NTT-iNTT directory currently contains only the KiD paper."
     }
   ]
 }

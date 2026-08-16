@@ -16,10 +16,10 @@ paths:
 # Model(s) the agents use
 models:
   planner:
-    id: "TODO-planner-model"
+    id: "host-selected-planner"
     temperature: 0.2
   worker:
-    id: "TODO-worker-model"
+    id: "host-selected-worker"
     temperature: 0.0
 
 # Loop safety limits
@@ -47,4 +47,4 @@ hitl:
     on_retry_limit: true
   reviewers: ["project-owner"]
   approval_timeout_seconds: 86400
-  demo_auto_approve: true   # demo only; set false in production
+  demo_auto_approve: false

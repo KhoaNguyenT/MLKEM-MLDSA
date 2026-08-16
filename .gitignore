@@ -43,3 +43,6 @@ xsim.dir/
 *.pem
 *.key
 credentials.json
+
+# Local harness bootstrap marker
+harness-codex-MLKEM-MLDSA/.harness-bootstrap.ok

@@ -34,4 +34,19 @@ what happens next. The runnable driver of this loop is
 ## Guardrails (human-in-the-loop)
 Pause and ask a human before: destructive or irreversible actions, committing, marking
 a feature `passing`, or when confidence is low or evidence conflicts.
+
 See `../docs/human-in-the-loop.md`.
+
+## Parallel-worker control plane
+
+For Codex and Antigravity concurrency, read `../coordination/assignments.json` and
+`../coordination/README.md`. The Captain:
+
+- creates non-overlapping work packets;
+- remains the sole owner of feature_list, memory, state, and assignments;
+- reviews each worker report, diff, evidence, and commit;
+- integrates accepted commits one at a time;
+- reports consolidated status and decisions to the user in this long-lived session.
+
+A worker request for an unassigned path is a scope-expansion request, not implicit
+permission to edit it.

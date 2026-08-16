@@ -5,9 +5,22 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
-# >>> project setup (append your real environment commands) >>>
-# e.g. ./docker-dev.sh start
-#      python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
-# <<< project setup <<<
+PROJECT_ROOT="$(cd "$ROOT/.." && pwd)"
+
+command -v python3 >/dev/null 2>&1 || {
+  echo "ERROR: python3 is required (run this script from WSL)." >&2
+  exit 1
+}
+command -v git >/dev/null 2>&1 || {
+  echo "ERROR: git is required." >&2
+  exit 1
+}
+
+python3 "$ROOT/harness/tools/verify_project.py" \
+  --project-root "$PROJECT_ROOT" \
+  --harness-root "$ROOT"
+
+printf 'bootstrap_verified_at=%s\nproject_root=%s\n' \
+  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$PROJECT_ROOT" > "$ROOT/.harness-bootstrap.ok"
 
 echo "init.sh complete. You can now start an agent session from this repository root."
